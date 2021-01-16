@@ -10,7 +10,7 @@
   <% @week_days.each do |day| %>
     <div class='item'>
       <div class='date'>
-        <% day[:month] %>/<% day[:date] %><% day[:wday]%>
+        <%= day[:month] %>/<%= day[:date] %><%= day[:wday]%>
         <%#day[:wday]は曜日を表示するために使用%>
       </div>
       <ul class='content'>
