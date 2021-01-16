@@ -38,14 +38,14 @@ class CalendarsController < ApplicationController
       plans.each do |plan|
         today_plans.push(plan.plan) if plan.date == @todays_date + x
       end    
-      #曜日が変わるようにtimesメソッドを使う
+      #上記のeach文では、日付に関しての文でtimesメソッドに含まれる形、曜日とは別
 
       wday_num = @wday + x
       if wday_num >= 7
         wday_num = wday_num -7
       end
-      #7を超える可能性があるため対応
-
+      #7を超える可能性があるため対応、またtimesメソッドに使われるブロック変数xのみをこちらで使っている
+      #37から40行目に関しては43から46と接点はない、理由はDate.todayとDate.today.wdayで出力されるものが違うから
       days = { month: (@todays_date + x).month, date: (@todays_date+x).day, plans: today_plans, wday: wdays[wday_num]}
       #上記のハッシュロケットをシンボル型に変更
       # 曜日を表示するためwday: wdays[wday_num]を追加
