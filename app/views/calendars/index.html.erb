@@ -10,20 +10,18 @@
   <% @week_days.each do |day| %>
     <div class='item'>
       <div class='date'>
-        <% day[:month] %>/<% day[:date] %>
+        <%= day[:month] %>/<%= day[:date] %><%= day[:wday]%>
+        <%#day[:wday]は曜日を表示するために使用%>
       </div>
       <ul class='content'>
       <% if day[:plans].length != 0 %>
         <% day[:plans].each do |plan| %>
-          <li class='plan-list'>
-          ・<%= plan %>
-          </li>
+          <li class='plan-list'>・<%= plan %></li>
           <%#liが改行されてなく見にくかったため改行%>
         <% end %>
       <% end %>
       </ul>
-      </div>
+    </div>
   <% end %>
 </div>
-
 <%#div要素が1行目と8行目の２箇所でプラスで作られていたため削除%>
