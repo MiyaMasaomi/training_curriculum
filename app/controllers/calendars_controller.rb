@@ -37,13 +37,6 @@ class CalendarsController < ApplicationController
       today_plans = []
       plans.each do |plan|
         today_plans.push(plan.plan) if plan.date == @todays_date + x
-      end
-    end
-
-    7.times do |x|
-      today_plans = []
-      plans.each do |plan|
-        today_plans.push(plan.plan) if plan.date == @wday + x
       end    
       #曜日が変わるようにtimesメソッドを使う
 
