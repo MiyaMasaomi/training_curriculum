@@ -1,9 +1,9 @@
 <%= form_with model: @plan, url: calendars_path, class: 'form' do |f| %>
-  <%= f.label :日付を選択, class: 'lavel' %>
-  <%= f.date_field :date, class: 'date-select' %>
-  <%= f.label :予定を入力, class: 'lavel' %>
-  <%= f.text_field :plan, class: 'text-input' %>
-  <%= f.submit '保存' %>
+    <%= f.label :日付を選択, class: 'lavel' %>
+    <%= f.date_field :date, class: 'date-select' %>
+    <%= f.label :予定を入力, class: 'lavel' %>
+    <%= f.text_field :plan, class: 'text-input' %>
+    <%= f.submit '保存' %>
 <% end %>
 
 <div class='calendar'>
@@ -11,6 +11,7 @@
     <div class='item'>
       <div class='date'>
         <% day[:month] %>/<% day[:date] %><% day[:wday]%>
+        <%#day[:wday]は曜日を表示するために使用%>
       </div>
       <ul class='content'>
       <% if day[:plans].length != 0 %>
@@ -18,9 +19,11 @@
           <li class='plan-list'>
           ・<%= plan %>
           </li>
+          <%#liが改行されてなく見にくかったため改行%>
         <% end %>
       <% end %>
       </ul>
-    </div>
+      </div>
   <% end %>
 </div>
+<%#div要素が1行目と8行目の２箇所でプラスで作られていたため削除%>
